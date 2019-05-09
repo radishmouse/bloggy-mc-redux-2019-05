@@ -1,6 +1,7 @@
 
 import {
-    ACTION_CREATE_POST
+    ACTION_CREATE_POST,
+    ACTION_DELETE_POST
 } from '../actions';
 
 import { generateId } from '../utils';
@@ -28,6 +29,13 @@ export default function posts(state={}, action={type: ''}) {
             // can use the familar assignment syntax:
             // newState[id] = action.payload;
             return newState;
+        break;
+        case ACTION_DELETE_POST:
+            const deleteState = {
+                ...state
+            };
+            delete deleteState[action.payload.id];
+            return deleteState;
         break;
         default:
             return state;
