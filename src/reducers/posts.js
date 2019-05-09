@@ -8,7 +8,7 @@ import {
 // and an action
 // then calculates/returns the next
 // new version of state
-export function posts(state={}, action={type: ''}) {
+export default function posts(state={}, action={type: ''}) {
     switch(action.type) {
         case ACTION_CREATE_POST:
             // create a post!
