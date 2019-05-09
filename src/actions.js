@@ -17,6 +17,7 @@ export function createPost(payload) {
         payload
     };
 }
+window.createPost = createPost;
 
 export function updatePost() {
 
