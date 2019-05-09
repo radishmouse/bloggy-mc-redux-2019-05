@@ -1,7 +1,8 @@
 
 import {
     ACTION_CREATE_POST,
-    ACTION_DELETE_POST
+    ACTION_DELETE_POST,
+    ACTION_UPDATE_POST
 } from '../actions';
 
 import { generateId } from '../utils';
@@ -36,6 +37,16 @@ export default function posts(state={}, action={type: ''}) {
             };
             delete deleteState[action.payload.id];
             return deleteState;
+        break;
+        case ACTION_UPDATE_POST:
+            // const {id, title, content} = action.payload;
+            return {
+                ...state,
+                [action.payload.id]: {
+                    title: action.payload.title || state[action.payload.id].title,
+                    content: action.payload.content || state[action.payload.id].content,
+                }
+            };
         break;
         default:
             return state;
