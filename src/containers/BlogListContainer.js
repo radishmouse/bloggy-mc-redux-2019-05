@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import BlogList from '../components/BlogList';
+import { selectPost } from '../actions';
 
 // translate redux state into react props
 const mapStateToProps = (state) => {
@@ -10,9 +11,19 @@ const mapStateToProps = (state) => {
 };
 
 // translate redux action-dispatch into react props
-// (we don't need this...yet)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        // react-prop: redux-dispatch
+        handleClick: (id) => {
+            dispatch(selectPost(id));
+        }
+    };
+};
 
-const makeBlogListSmart = connect(mapStateToProps);
+const makeBlogListSmart = connect(
+    mapStateToProps, 
+    mapDispatchToProps
+);
 const SmartBlogList = makeBlogListSmart(BlogList);
 
 export default SmartBlogList;
