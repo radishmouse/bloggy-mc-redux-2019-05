@@ -3,7 +3,7 @@
 export const ACTION_CREATE_POST = 'ACTION_CREATE_POST';
 export const ACTION_UPDATE_POST = 'ACTION_UPDATE_POST';
 export const ACTION_DELETE_POST = 'ACTION_DELETE_POST';
-
+export const ACTION_SELECT_POST = 'ACTION_SELECT_POST';
 // Action creators
 
 export function createPost(payload) {
@@ -41,3 +41,10 @@ export function updatePost(id, payload) {
 }
 window.updatePost = updatePost;
 
+export function selectPost(id) {
+    return {
+        type: ACTION_SELECT_POST,
+        payload: id
+    }
+}
+window.selectPost = selectPost;
