@@ -48,3 +48,15 @@ export function selectPost(id) {
     }
 }
 window.selectPost = selectPost;
+
+export const ACTION_API_DATA = 'ACTION_API_DATA';
+
+export async function getPostsFromAPI() {
+    const data = await fetch('/api').then(r => r.json());
+    console.log(data);
+    return {
+        type: ACTION_API_DATA,
+        payload: data.payload
+    };
+}
+window.getPostsFromAPI = getPostsFromAPI;

@@ -2,7 +2,8 @@
 import {
     ACTION_CREATE_POST,
     ACTION_DELETE_POST,
-    ACTION_UPDATE_POST
+    ACTION_UPDATE_POST,
+    ACTION_API_DATA
 } from '../actions';
 
 import { generateId } from '../utils';
@@ -14,6 +15,9 @@ import { generateId } from '../utils';
 // new version of state
 export default function posts(state={}, action={type: ''}) {
     switch(action.type) {
+        case ACTION_API_DATA:
+            return action.payload.posts;
+        break;
         case ACTION_CREATE_POST:
             // create a post!
             const id = generateId();

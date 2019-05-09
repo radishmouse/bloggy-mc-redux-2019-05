@@ -6,6 +6,9 @@ import {
 import posts from './reducers/posts';
 import selectedid from './reducers/selectedid';
 
+import apiReducer from './reducers/apiReducer';
+import {getPostsFromAPI} from './actions';
+
 const FREQUENCY = 2000;
 const LS_KEY = 'bloggy-mc-redux';
 
@@ -32,6 +35,15 @@ const store = createStore(
     initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+
+async function main() {
+    const action = await getPostsFromAPI();
+    // TODO: compare initialState to data from API (in action.payload)
+    // Use a mix of the two
+    store.dispatch(action);
+}
+main();
+
 
 setInterval(() => {
     const state = store.getState();
