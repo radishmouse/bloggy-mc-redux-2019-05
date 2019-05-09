@@ -36,6 +36,8 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+// redux-thunk
+// redux-saga
 async function main() {
     const action = await getPostsFromAPI();
     // TODO: compare initialState to data from API (in action.payload)
